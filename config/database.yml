@@ -9,6 +9,7 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
+#  encoding: unicode
 
 development:
   <<: *default
@@ -24,3 +25,8 @@ test:
 production:
   <<: *default
   database: db/production_postgresql
+<<<<<<< HEAD
+=======
+
+# The End
+>>>>>>> checkpoint-25-staticpages

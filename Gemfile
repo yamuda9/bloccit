@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-<<<<<<< HEAD
+#<<<<<<< HEAD
 ruby '1.9.3'
-=======
+#=======
 # Ruby version
-ruby '2.0.0'
->>>>>>> checkpoint-25-staticpages
+#ruby '2.0.0'
+#>>>>>>> checkpoint-25-staticpages
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
@@ -41,7 +41,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
-  gem 'debugger'
+#  gem 'debugger'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do

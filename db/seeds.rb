@@ -18,6 +18,10 @@ posts = Post.all
   )
 end
 
+Post.find_or_create_by(title: "Another one.") do |post|
+  post.body=("Another one!")
+end
+
 puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"

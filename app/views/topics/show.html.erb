@@ -6,6 +6,18 @@
 <div class="row">
   <div class="col-md-8">
     <p class="lead"><%= @topic.description %></p>
+    <% @topic.sponsored_posts.each do |post| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to post.title, topic_post_path(@topic, post) %>
+          </h4>
+          <small>
+            Sponsored Post
+          </small>
+        </div>
+      </div>
+    <% end %>
     <% @topic.posts.each do |post| %>
       <div class="media">
         <div class="media-body">

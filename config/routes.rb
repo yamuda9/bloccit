@@ -5,10 +5,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
 
-  resources :confirm, only: [:new]
-
   get 'about' => 'welcome#about'
-  get '/users/new/confirm' => 'users#confirm'
+  post '/users/confirm' => 'users#confirm'
 
   root to: 'welcome#index'
 end

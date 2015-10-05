@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
 
   default_scope { order('created_at DESC') }
+  scope :ordered_by_reverse_created_at, -> { order('created_at ASC') }
+  scope :ordered_by_title, -> { order('title ASC') }
 
   validates_length_of :title, minimum: 5
   validates_length_of :body, minimum: 20

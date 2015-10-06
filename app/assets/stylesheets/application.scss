@@ -18,9 +18,19 @@
 @import "bootstrap";
 
 .user-info {
-  margin-top: 9px;
+  margin-top: 5px;
 }
 
 .nav {
   margin-top: 5px;
+}
+
+.user-nav-div {
+  text-align: right;
+  padding-right: 5px;
+  float: left;
+}
+
+.gravatar {
+  float: right;
 }

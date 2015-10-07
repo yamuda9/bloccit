@@ -53,7 +53,7 @@ RSpec.describe User, type: :model do
       end
 
       it "should return false for #admin?" do
-        expect(user.admin?).to be falsey
+        expect(user.admin?).to be_falsey
       end
     end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151009051919) do
+ActiveRecord::Schema.define(version: 20151011191543) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,31 @@ ActiveRecord::Schema.define(version: 20151009051919) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "labelings", force: :cascade do |t|
+    t.integer  "label_id"
+    t.integer  "topic_id"
+    t.integer  "post_id"
+    t.integer  "labelable_id"
+    t.string   "labelable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "labelings", ["label_id"], name: "index_labelings_on_label_id", using: :btree
+  add_index "labelings", ["labelable_type", "labelable_id"], name: "index_labelings_on_labelable_type_and_labelable_id", using: :btree
+  add_index "labelings", ["post_id"], name: "index_labelings_on_post_id", using: :btree
+  add_index "labelings", ["topic_id"], name: "index_labelings_on_topic_id", using: :btree
+
+  create_table "labels", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "labelable_id"
+    t.string   "labelable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "labels", ["labelable_type", "labelable_id"], name: "index_labels_on_labelable_type_and_labelable_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
@@ -85,4 +110,7 @@ ActiveRecord::Schema.define(version: 20151009051919) do
   end
 
   add_foreign_key "comments", "posts"
+  add_foreign_key "labelings", "labels"
+  add_foreign_key "labelings", "posts"
+  add_foreign_key "labelings", "topics"
 end

@@ -59,6 +59,13 @@ member = User.create!(
   password: 'helloworld'
 )
 
+# Create Legit User
+real = User.create!(
+  name:     'Real User',
+  email:    'haxor9999@yahoo.com',
+  password: 'helloworld'
+)
+
 puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Topic.count} topics created"

@@ -3,11 +3,15 @@ include RandomData
 include SessionsHelper
 
 RSpec.describe PostsController, type: :controller do
+  before do
+    Post.destroy_all
+  end
+
   let(:my_topic) { create(:topic) }
   let(:my_user) { create(:user) }
   let(:other_user) { create(:user) }
   let(:my_post) { create(:post, topic: my_topic, user: my_user) }
-  
+
   context "guest" do
     describe "GET show" do
       it "returns http success" do

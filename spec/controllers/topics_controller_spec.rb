@@ -3,6 +3,10 @@ include RandomData
 include SessionsHelper
 
 RSpec.describe TopicsController, type: :controller do
+  before do
+    Topic.destroy_all
+  end
+
   let (:my_topic) { create(:topic) }
   let (:my_private_topic) { create(:topic, public: false) }
 
@@ -29,7 +33,7 @@ RSpec.describe TopicsController, type: :controller do
         get :show, {id: my_private_topic.id}
         expect(response).to redirect_to(new_session_path)
       end
-      
+
       it "returns http success" do
         get :show, {id: my_topic.id}
         expect(response).to have_http_status(:success)

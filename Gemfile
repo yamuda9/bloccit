@@ -4,7 +4,7 @@ ruby                        '2.2.3'
 
 gem 'rails',                '4.2.4'
 
-gem 'bcrypt'
+gem 'bcrypt',               '~> 3.1.9'
 
 gem 'bootstrap-sass'
 
@@ -15,6 +15,10 @@ gem 'figaro',               '1.0'
 
 gem 'jquery-rails'
 gem 'jbuilder',             '~> 2.0'
+
+gem 'nokogiri',             '1.6.7.rc3'
+
+gem 'pg'
 
 gem 'sass-rails',           '~> 5.0'
 
@@ -30,7 +34,7 @@ end
 
 group :development, :test do
   gem 'rspec-rails',        '~> 3.0'
-  gem 'shoulda-matchers'
+  gem 'shoulda-matchers',   require: false
   gem 'factory_girl_rails', '~> 4.0'
 end
 

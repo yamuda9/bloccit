@@ -1,7 +1,7 @@
 require 'rails_helper'
 include RandomData
 
-RSpec.describe User, type: :model do
+RSpec.describe User, type: :model do  
   let(:user) { create(:user) }
   it { should have_many(:posts) }
   it { should have_many(:comments) }

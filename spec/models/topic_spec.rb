@@ -28,6 +28,7 @@ RSpec.describe Topic, type: :model do
 
   describe "scopes" do
     before do
+      Topic.destroy_all
       @public_topic = Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph)
       @private_topic = Topic.create!(name: RandomData.random_sentence, description: RandomData.random_paragraph, public: false)
     end
@@ -38,7 +39,7 @@ RSpec.describe Topic, type: :model do
         expect(Topic.visible_to(user)).to eq(Topic.all)
       end
 
-      it "returns onl public topics if user is nil" do
+      it "returns only public topics if user is nil" do
         expect(Topic.visible_to(nil)).to eq([@public_topic])
       end
     end

@@ -17,14 +17,15 @@
 //= require_tree .
 
 var blocmetrics = {};
-  blocmetrics.report = function(eventName){
-    var event = {event: { name: eventName }};
 
-    var request = new XMLHttpRequest();
+blocmetrics.report = function(eventName){
+  var event = {event: { name: eventName }};
 
-    request.open("POST", "http://localhost:3000/api/events", true);
+  var request = new XMLHttpRequest();
 
-    request.setRequestHeader('Content-Type', 'application/json');
+  request.open("POST", "http://localhost:3000/api/events", true);
 
-    request.send(JSON.stringify(event));
-  };
+  request.setRequestHeader('Content-Type', 'application/json');
+
+  request.send(JSON.stringify(event));
+};
